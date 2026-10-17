@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【超絶人気】 KIORU (キオル) UTAU Voicebank Official Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800;900&family=DotGothic16&display=swap" rel="stylesheet">
+  
+  <!-- SCRIPT OFICIAL DE LA API DE SOUNDCLOUD -->
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+
+  <style>
+    :root {
+      --rakuten-red: #bf0000;
+      --bright-red: #ff0000;
+      --joshin-blue: #0055cc;
+      --accent-yellow: #ffff00;
+      --neon-pink: #ff007f;
+      --neon-green: #00ff66;
+      --neon-cyan: #00ffff;
+      --bg-gray: #f2f4f8;
+      --border-color: #cccccc;
+      --youtube-red: #ff0000;
+      --soundcloud-orange: #ff5500;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-gray);
+      color: #222222;
+      font-family: 'M PLUS 1p', 'DotGothic16', sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
+      padding-bottom: 60px; /* Espacio para la barra flotante */
+    }
+
+    /* --- BARRA FLOTANTE DE DESCARGA RÁPIDA --- */
+    .sticky-download-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 3px solid var(--accent-yellow);
+      padding: 8px 15px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+    }
+
+    .sticky-download-text {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .btn-sticky-dl {
+      background: linear-gradient(90deg, #ff0055, #ff0000);
+      color: #ffffff !important;
+      font-weight: 900;
+      padding: 6px 16px;
+      text-decoration: none;
+      border: 2px solid var(--accent-yellow);
+      border-radius: 4px;
+      font-size: 13px;
+      animation: pulseBtn 1s infinite alternate;
+    }
+
+    @keyframes pulseBtn {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    /* --- TOP BANNER ADVERTISING BAR --- */
+    .top-ad-bar {
+      background: linear-gradient(90deg, #ff0000, #ff007f, #0055cc, #ff0000);
+      background-size: 300% 300%;
+      animation: gradientBG 4s ease infinite;
+      color: #ffffff;
+      text-align: center;
+      padding: 6px;
+      font-weight: 900;
+      font-size: 12px;
+      border-bottom: 2px solid var(--accent-yellow);
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* --- TOP HEADER PORTAL --- */
+    header {
+      background: #ffffff;
+      border-bottom: 3px solid var(--rakuten-red);
+      padding: 8px 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-badge {
+      background: var(--rakuten-red);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 24px;
+      padding: 2px 10px;
+      border-radius: 4px;
+      letter-spacing: -1px;
+      animation: pulseLogo 1.5s infinite;
+    }
+
+    @keyframes pulseLogo {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--joshin-blue);
+    }
+
+    .status-tags {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tag-blink {
+      background: var(--accent-yellow);
+      color: #000;
+      border: 1px solid var(--bright-red);
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: bold;
+      animation: blinkFast 0.6s steps(2, start) infinite;
+    }
+
+    @keyframes blinkFast {
+      to { visibility: hidden; }
+    }
+
+    .btn-header-dl {
+      background: #00ff66;
+      color: #000;
+      font-weight: 900;
+      padding: 4px 10px;
+      border: 2px solid #009933;
+      text-decoration: none;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+
+    /* --- BARRA DE NAVEGACIÓN PRINCIPAL --- */
+    nav {
+      background: var(--rakuten-red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .nav-tabs {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      list-style: none;
+      overflow-x: auto;
+    }
+
+    .nav-tabs li {
+      flex: 1;
+      min-width: 90px;
+      text-align: center;
+      border-right: 1px solid #ff6666;
+    }
+
+    .nav-tabs a {
+      display: block;
+      padding: 8px 4px;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12px;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-tabs a:hover {
+      background: var(--accent-yellow);
+      color: #000000;
+      transform: translateY(-2px);
+    }
+
+    /* --- MARQUESINA CONTINUA ULTRA SUAVE --- */
+    .marquee-wrapper {
+      background: #000000;
+      color: #00ffff;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--accent-yellow);
+      padding: 4px 0;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      white-space: nowrap;
+      will-change: transform;
+      animation: smoothMarquee 18s linear infinite;
+    }
+
+    @keyframes smoothMarquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* --- CONTENEDOR ADAPTABLE (RESPONSIVE GRID) --- */
+    .main-wrapper {
+      max-width: 1100px;
+      margin: 15px auto;
+      padding: 0 10px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --- TARJETAS Y CONTENIDOS --- */
+    .section-card {
+      background: #ffffff;
+      border: 2px solid var(--joshin-blue);
+      margin-bottom: 15px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: linear-gradient(90deg, var(--joshin-blue), #3388ff);
+      color: #ffffff;
+      padding: 6px 12px;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    /* HERO SALE BANNER */
+    .hero-sale {
+      background: linear-gradient(135deg, #ff0000 0%, #cc0000 50%, #990000 100%);
+      border: 4px double var(--accent-yellow);
+      color: #ffffff;
+      text-align: center;
+      padding: 18px;
+      margin-bottom: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-sale::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(30deg);
+      animation: shineEffect 3s infinite;
+    }
+
+    @keyframes shineEffect {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    .hero-sale h1 {
+      font-size: 28px;
+      color: var(--accent-yellow);
+      font-weight: 900;
+      text-shadow: 2px 2px 0px #000;
+      line-height: 1.1;
+    }
+
+    .hero-sale p {
+      font-size: 12px;
+      background: rgba(0,0,0,0.5);
+      display: inline-block;
+      padding: 3px 10px;
+      margin-top: 6px;
+      border-radius: 3px;
+    }
+
+    /* SPEC TABLE */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .spec-table th, .spec-table td {
+      padding: 8px;
+      border-bottom: 1px dotted #ccc;
+      text-align: left;
+    }
+
+    .spec-table th {
+      color: var(--joshin-blue);
+      width: 130px;
+      font-weight: bold;
+    }
+
+    .chip {
+      background: #e6f2ff;
+      border: 1px solid #99ccff;
+      color: #003366;
+      padding: 2px 6px;
+      font-size: 11px;
+      border-radius: 2px;
+    }
+
+    /* BANNERS A COLOR INTERACTIVOS */
+    .banner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mini-banner {
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .mini-banner:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .mini-banner.yellow {
+      background: #ffffcc;
+      border: 2px dashed #e6a100;
+    }
+
+    .mini-banner.blue {
+      background: #e6f2ff;
+      border: 2px dashed #0055cc;
+    }
+
+    .mini-banner.pink {
+      background: #ffe6f0;
+      border: 2px dashed #ff0066;
+    }
+
+    .mini-banner.green {
+      background: #e6ffe6;
+      border: 2px dashed #009933;
+    }
+
+    /* RECUADROS DE PUBLICIDAD ESTILO RETRO */
+    .ad-box {
+      background: #fff;
+      border: 3px double #ff0055;
+      padding: 10px;
+      margin-top: 12px;
+      text-align: center;
+      position: relative;
+    }
+
+    .ad-badge {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: #ff0055;
+      color: #fff;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 1px 5px;
+    }
+
+    .ad-title-animated {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--rakuten-red);
+      animation: colorShift 2s infinite alternate;
+    }
+
+    @keyframes colorShift {
+      0% { color: var(--rakuten-red); }
+      50% { color: var(--joshin-blue); }
+      100% { color: var(--neon-pink); }
+    }
+
+    /* BANNERS CINTA */
+    .ad-banner-strip {
+      background: linear-gradient(90deg, #ffea00, #ff0055, #ffea00);
+      background-size: 200% 100%;
+      animation: moveStrip 3s linear infinite;
+      border: 2px solid #000;
+      padding: 10px;
+      text-align: center;
+      margin: 15px 0;
+      font-weight: 900;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    @keyframes moveStrip {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 0%; }
+    }
+
+    /* BANNER DE YOUTUBE INTERACTIVO */
+    .youtube-ad-card {
+      background: linear-gradient(135deg, #111111 0%, #222222 100%);
+      border: 3px solid var(--youtube-red);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(255, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .youtube-ad-card::before {
+      content: 'OFFICIAL YOUTUBE';
+      position: absolute;
+      top: 6px;
+      right: -25px;
+      background: var(--youtube-red);
+      color: #fff;
+      font-size: 8px;
+      font-weight: bold;
+      padding: 2px 25px;
+      transform: rotate(45deg);
+    }
+
+    /* ==========================================
+       BANNER CANAL SECUNDARIO (INTERFAZ RETRO MONOCROMÁTICA / PIXEL ART)
+       ========================================== */
+    .youtube-subchannel-card {
+      font-family: 'DotGothic16', monospace;
+      background: #000000;
+      border: 4px solid #ffffff;
+      padding: 18px 14px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 0px; /* Bordes rígidos / Sin suavizado */
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .youtube-subchannel-card::before {
+      content: 'LIVE & COVERS';
+      position: absolute;
+      top: 6px;
+      right: -30px;
+      background: #ffffff;
+      color: #000000;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 30px;
+      transform: rotate(45deg);
+      border: 1px solid #000000;
+    }
+
+    /* Animación del Título Pixel Art con Temblor Intenso y Rápido */
+    .shake-title {
+      display: inline-block;
+      font-size: 22px;
+      font-weight: normal;
+      color: #ffffff;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .shake-title span {
+      display: inline-block;
+      animation-duration: 0.50s; /* Movimiento el doble de rápido */
+      animation-iteration-count: infinite;
+      animation-timing-function: steps(2, start);
+    }
+
+    /* Movimientos desfasados e intensos para cada letra y símbolo */
+    .shake-title span:nth-child(1) { animation-name: intenseShake1; }
+    .shake-title span:nth-child(2) { animation-name: intenseShake2; }
+    .shake-title span:nth-child(3) { animation-name: intenseShake3; }
+    .shake-title span:nth-child(4) { animation-name: intenseShake4; }
+    .shake-title span:nth-child(5) { animation-name: intenseShake1; animation-delay: 0.03s; }
+    .shake-title span:nth-child(6) { animation-name: intenseShake2; animation-delay: 0.05s; }
+    .shake-title span:nth-child(7) { animation-name: intenseShake3; animation-delay: 0.02s; }
+    .shake-title span:nth-child(8) { animation-name: intenseShake4; animation-delay: 0.04s; }
+    .shake-title span:nth-child(9) { animation-name: intenseShake1; } /* Espacio */
+    .shake-title span:nth-child(10) { animation-name: intenseShake2; animation-delay: 0.01s; } /* ( */
+    .shake-title span:nth-child(11) { animation-name: intenseShake1; animation-delay: 0.06s; } /* キ */
+    .shake-title span:nth-child(12) { animation-name: intenseShake3; animation-delay: 0.02s; } /* オ */
+    .shake-title span:nth-child(13) { animation-name: intenseShake4; animation-delay: 0.05s; } /* ル */
+    .shake-title span:nth-child(14) { animation-name: intenseShake2; animation-delay: 0.03s; } /* ) */
+
+    @keyframes intenseShake1 {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-3px, 3px); }
+      50% { transform: translate(3px, -2px); }
+      75% { transform: translate(-2px, -3px); }
+      100% { transform: translate(3px, 2px); }
+    }
+
+    @keyframes intenseShake2 {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(3px, -3px); }
+      50% { transform: translate(-3px, 3px); }
+      75% { transform: translate(3px, 2px); }
+      100% { transform: translate(-3px, -2px); }
+    }
+
+    @keyframes intenseShake3 {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-2px, -3px); }
+      50% { transform: translate(3px, 3px); }
+      75% { transform: translate(-3px, 2px); }
+      100% { transform: translate(2px, -3px); }
+    }
+
+    @keyframes intenseShake4 {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(3px, 3px); }
+      50% { transform: translate(-3px, -3px); }
+      75% { transform: translate(2px, -2px); }
+      100% { transform: translate(-2px, 3px); }
+    }
+
+    /* Botón Pixel Art Estilo Menú RPG */
+    .btn-youtube-sub {
+      display: block;
+      background: #000000;
+      color: #ffffff !important;
+      font-size: 13px;
+      padding: 10px 6px;
+      text-decoration: none;
+      border: 2px solid #ffffff;
+      margin-top: 12px;
+      border-radius: 0px;
+      transition: background 0.1s, color 0.1s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-youtube-sub:hover {
+      background: #ffffff;
+      color: #000000 !important;
+    }
+
+    .pixel-arrow {
+      display: inline-block;
+      margin-right: 4px;
+      animation: blinkArrow 0.5s steps(2, start) infinite;
+    }
+
+    @keyframes blinkArrow {
+      to { visibility: hidden; }
+    }
+
+    .btn-youtube {
+      display: block;
+      background: linear-gradient(180deg, #ff0000 0%, #b30000 100%);
+      color: #ffffff !important;
+      font-size: 15px;
+      font-weight: 900;
+      padding: 10px;
+      text-decoration: none;
+      border: 2px solid var(--accent-yellow);
+      margin-top: 10px;
+      border-radius: 4px;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    }
+
+    .btn-youtube:hover {
+      background: #ff3333;
+      transform: scale(1.04);
+      color: var(--accent-yellow) !important;
+    }
+
+    /* SECCIÓN PREGUNTAS FRECUENTES (FAQ) INTERACTIVAS */
+    .faq-item {
+      border-bottom: 1px dashed #ccc;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      width: 100%;
+      background: #f8f9fa;
+      border: none;
+      outline: none;
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #0055cc;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: #e6f2ff;
+    }
+    .faq-answer {
+      display: none;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #333;
+      background: #fff;
+      border-top: 1px dotted #e0e0e0;
+      line-height: 1.5;
+    }
+
+    /* ESTILO IMAGEN DE PERFIL CUADRADA */
+    .profile-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 8px;
+      border: 3px solid var(--rakuten-red);
+      object-fit: cover;
+      display: block;
+      background-color: #eee;
+    }
+
+    /* BANNER PROMO DE CANCIONES Y MVs */
+    .music-promo-banner {
+      background: linear-gradient(135deg, #110022 0%, #330066 100%);
+      border: 3px double var(--neon-pink);
+      color: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .music-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .music-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--neon-pink);
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* REPRODUCTOR PERSONALIZADO DE SOUNDCLOUD Y CONTENEDOR DE BOTONES */
+    .audio-demo-box {
+      background: #e6f2ff;
+      border: 2px dashed var(--joshin-blue);
+      padding: 12px;
+      text-align: center;
+      margin-top: 12px;
+      border-radius: 4px;
+    }
+
+    .audio-controls-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn-soundcloud-link {
+      background: var(--soundcloud-orange);
+      color: #ffffff !important;
+      border: 2px solid #cc4400;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-soundcloud-link:hover {
+      background: #ff661a;
+      transform: scale(1.02);
+    }
+
+    /* SIDEBAR Y BOTONES DE DESCARGA */
+    .download-card {
+      background: #fff0f5;
+      border: 3px solid #ff0055;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .btn-download {
+      display: block;
+      background: linear-gradient(180deg, #ff0055 0%, #cc0044 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 12px 6px;
+      text-decoration: none;
+      border: 2px solid var(--accent-yellow);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      margin-top: 8px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.1s, background 0.2s;
+    }
+
+    .btn-download:hover {
+      background: #ff1a66;
+      color: var(--accent-yellow);
+      transform: scale(1.03);
+    }
+
+    .btn-action {
+      display: block;
+      width: 100%;
+      background: #ffffff;
+      border: 2px solid var(--joshin-blue);
+      color: var(--joshin-blue);
+      padding: 8px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--joshin-blue);
+      color: #ffffff;
+    }
+
+    /* PUBLICIDAD LATERAL GIGANTE */
+    .sidebar-ad-card {
+      background: linear-gradient(180deg, #000000 0%, #1a0033 100%);
+      border: 3px solid var(--accent-yellow);
+      color: #ffffff;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-ad-card h3 {
+      color: var(--accent-yellow);
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .modal-content {
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      border: 3px solid var(--rakuten-red);
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--rakuten-red);
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .close-modal {
+      cursor: pointer;
+      color: #999;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #222222;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 20px;
+      font-size: 11px;
+      border-top: 3px solid var(--rakuten-red);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOTOR OCULTO DE SOUNDCLOUD -->
+  <iframe 
+    id="soundcloud-player" 
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay" 
+    style="display: none;"
+    src="https://w.soundcloud.com/player/?url=https://soundcloud.com/kioru-221056911/rainy-feelings-go-away-kasane&auto_play=false">
+  </iframe>
+
+  <!-- BARRA FLOTANTE DE DESCARGA RÁPIDA -->
+  <div class="sticky-download-bar">
+    <div class="sticky-download-text">
+      🫓 UTAU KIORU Voicebank (Free Download)
+    </div>
+    <a href="#download" class="btn-sticky-dl">
+      ⚡ 今すぐダウンロード [Download Now]
+    </a>
+  </div>
+
+  <!-- BARRA DE PUBLICIDAD SUPERIOR -->
+  <div class="top-ad-bar">
+    🔥 【注目度No.1】 突然変異の擬人化羊ボイス「KIORU」完全無料配信中！アレパを手に歌う！ 🔥
+  </div>
+
+  <!-- CABECERA PRINCIPAL -->
+  <header>
+    <div class="header-container">
+      <div class="brand-logo">
+        <div class="logo-badge">KIORU</div>
+        <div>
+          <div class="brand-title">キオル UTAU Voicebank Official Portal</div>
+          <div style="font-size:10px; color:#666;">音源配布 &amp; キャラクターポータル [Official Voicebank &amp; Portal]</div>
+        </div>
+      </div>
+
+      <div class="status-tags">
+        <span class="tag-blink">★ OFFICIAL RELEASE ★</span>
+        <a href="#download" class="btn-header-dl">⬇ Voicebank DL</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN PRINCIPAL INTERACTIVA -->
+  <nav>
+    <ul class="nav-tabs">
+      <li><a href="#about">音源概要 [About]</a></li>
+      <li><a href="#tech-info">技術情報 [Tech Info]</a></li>
+      <li><a href="#music">楽曲/MV [Music]</a></li>
+      <li><a href="#faq">よくある質問 [FAQ]</a></li>
+      <li><a href="#download">無料DL [Download]</a></li>
+      <li><a href="#terms">利用規約 [Terms]</a></li>
+    </ul>
+  </nav>
+
+  <!-- MARQUESINA MÓVIL CONTINUA -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-item">
+        【最新情報】 UTAU用音源「キオル (KIORU)」VCV v1.0 配布決定！ ★ 好きな物はアレパ(Arepa)！ ★ ベネズエラ発の擬人化羊ボイス ★ 今すぐチェック！ ★
+      </div>
+      <div class="marquee-item">
+        【最新情報】 UTAU用音源「キオル (KIORU)」VCV v1.0 配布決定！ ★ 好きな物はアレパ(Arepa)！ ★ ベネズエラ発の擬人化羊ボイス ★ 今すぐチェック！ ★
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL DENSO -->
+  <div class="main-wrapper">
+
+    <!-- COLUMNA PRINCIPAL -->
+    <div>
+
+      <!-- HERO BANNER TIPO RAKUTEN -->
+      <div class="hero-sale">
+        <div style="font-size:11px; font-weight:bold;">UTAU &amp; OpenUTAU COMPATIBLE</div>
+        <h1>KIORU (キオル) VOICEBANK</h1>
+        <p>化学薬品の池から生まれたミステリアスな擬人化羊少女の合成音声！</p>
+        <div style="margin-top:10px;">
+          <a href="#download" class="btn-download" style="display:inline-block; padding:10px 20px;">
+            ⚡ Voicebank ZIP を直接ダウンロード [Direct Download]
+          </a>
+        </div>
+      </div>
+
+      <!-- BANNER PUBLICITARIO DE YOUTUBE PRINCIPAL -->
+      <div class="youtube-ad-card">
+        <h2 style="color: #ffffff; font-size: 18px; font-weight: 900;">
+          <span class="yt-play-icon"></span> YouTube 公式チャンネル配信中！
+        </h2>
+        <p style="color: #cccccc; font-size: 11px; margin-top: 4px;">
+          最新のオリジナル曲、UTAUカバー、MV動画をぞくぞく公開中！今すぐチャンネル登録！
+        </p>
+        <a href="https://youtube.com/@kioru_1" target="_blank" rel="noopener" class="btn-youtube">
+          ▶ KIORU Official YouTube Channel へ行く
+        </a>
+      </div>
+
+      <!-- SECCIÓN PROMOCIÓN DE MUSICA Y MVs EN YOUTUBE -->
+      <div class="music-promo-banner" id="music">
+        <div style="font-size:10px; color:var(--accent-yellow); font-weight:900;">NEW RELEASES &amp; MUSIC VIDEOS</div>
+        <h3 style="font-size:18px; color:#fff;">🎵 KIORU オリジナル曲 &amp; 公式MV</h3>
+        <p style="font-size:11px; color:#ddd; margin-top:4px;">
+          YouTubeにて公開中の最新ミュージックビデオをチェック！ボイスバンクの使用例としても聴いてみてください。
+        </p>
+        
+        <div class="music-grid">
+          <div class="music-item">
+            <div style="font-size:11px; font-weight:bold; color:var(--accent-yellow);">【公式MV】 ORIGINAL SONG</div>
+            <div style="font-size:12px; margin:4px 0;">KIORU - Original Track</div>
+            <a href="https://youtube.com/@kioru_1" target="_blank" rel="noopener" class="btn-action" style="font-size:10px; padding:4px;">YouTubeで視聴 [Watch]</a>
+          </div>
+          <div class="music-item">
+            <div style="font-size:11px; font-weight:bold; color:var(--neon-green);">【UTAU Cover】 DEMO SONG</div>
+            <div style="font-size:12px; margin:4px 0;">Voicebank Demo MV</div>
+            <a href="https://youtube.com/@kioru_1" target="_blank" rel="noopener" class="btn-action" style="font-size:10px; padding:4px;">YouTubeで視聴 [Watch]</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 1: SOBRE KIORU (PROFILE & FEATURES) -->
+      <div class="section-card" id="about">
+        <div class="card-header">
+          <span>■ 音源概要 / Profile &amp; Features</span>
+          <span style="font-size:10px;">ID: KIORU-VCV-01</span>
+        </div>
+        <div class="card-body">
+          
+          <!-- CONTENEDOR DE PERFIL CON FOTO Y DESCRIPCIÓN -->
+          <div style="display: flex; gap: 15px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 12px;">
+            <img src="https://i.postimg.cc/xdhs16DH/IMG-20261017-132032.jpg" alt="KIORU Profile" class="profile-avatar">
+            
+            <div style="flex: 1; min-width: 200px;">
+              <h2 style="color:var(--joshin-blue); font-size:18px; margin-bottom:6px;">キオル (KIORU)</h2>
+              <p style="font-size:12px; color:#444; line-height:1.6;">
+                キオル（KIORU）は、予想外の出来事の連鎖によって生まれた突然変異の擬人化羊です。元々は群れの中にいたごく普通の羊でしたが、ある日銃声に驚いて逃げ出し、崖から転落。放置された古い研究所の化学薬品池に落ちたことで、人間のような容姿と意識を獲得しました。
+              </p>
+            </div>
+          </div>
+
+          <table class="spec-table" id="specs">
+            <tr><th>種族 [Species]：</th><td>擬人化羊 (Anthropomorphic Sheep)</td></tr>
+            <tr><th>年齢 [Age]：</th><td>不明 (Unknown)</td></tr>
+            <tr><th>身長 [Height]：</th><td>172.7 cm</td></tr>
+            <tr><th>体重 [Weight]：</th><td>48 kg</td></tr>
+            <tr><th>持ち物 [Item]：</th><td><span class="chip" style="background:#fff3cd; border-color:#ffeeba; color:#856404; font-weight:bold;">アレパ (Arepa) 🫓</span></td></tr>
+          </table>
+
+          <!-- DEMO DE AUDIO CON REPRODUCTOR CUSTOM Y BOTÓN DE SOUNDCLOUD AL LADO -->
+          <div class="audio-demo-box">
+            <div style="font-weight:900; color:var(--joshin-blue); font-size:13px; margin-bottom:4px;">🎧 音声デモを聴く (Audio Sample)</div>
+            <p style="font-size:11px; color:#555; margin-bottom:8px;">SoundCloudから直接ストリーミング再生されます。</p>
+            
+            <div class="audio-controls-group">
+              <button id="preview-btn" class="btn-action" style="width: auto; padding: 8px 20px; font-size: 13px; font-weight: bold; margin-top: 0;" onclick="toggleAudioSim(this)">
+                ▶ 試聴再生 (Audio Preview)
+              </button>
+              
+              <a href="https://soundcloud.com/kioru-221056911" target="_blank" rel="noopener" class="btn-soundcloud-link">
+                ☁ SoundCloudで聴く
+              </a>
+            </div>
+          </div>
+
+          <!-- MÓDULO INTERMEDIO DE DESCARGA -->
+          <div style="background:#e6ffe6; border:2px dashed #009933; padding:10px; text-align:center; margin-top:12px;">
+            <div style="font-weight:900; color:#006622; font-size:13px;">📥 すぐに使ってみたい方はこちら！ [Download]</div>
+            <a href="#download" class="btn-download" style="background: linear-gradient(180deg, #00cc44 0%, #008822 100%); margin-top:6px;">
+              KIORU Voicebank (ZIP) をダウンロード
+            </a>
+          </div>
+
+          <!-- RECUADRO PUBLICITARIO 1 -->
+          <div class="ad-box">
+            <span class="ad-badge">RECOMMENDED</span>
+            <div class="ad-title-animated">⚡ なぜ KIORU ボイスバンクを選ぶべきなのか？ ⚡</div>
+            <p style="font-size:11px; color:#333; margin-top:5px;">
+              化学実験池から誕生した唯一無二の羊少女！多言語（日本語・英語・スペイン語）に対応予定の次世代UTAUボイスバンク！
+            </p>
+          </div>
+
+          <!-- BANNER ANIMADO TIPO CINTA -->
+          <div class="ad-banner-strip">
+            ★ MUTANT SHEEP VOICEBANK ★ AREPA POWERED ★ FREE DOWNLOAD ★
+          </div>
+
+          <!-- BANNERS DE VIRTUDES -->
+          <div class="banner-grid">
+            <div class="mini-banner pink" onclick="showInfoModal('高音質設計', 'ノイズ処理済みで調律なしでも綺麗に歌います。UTAU初心者にも最適です！')">
+              <h4 style="color:#cc0052;">★ 高音質 &amp; クリアボイス</h4>
+              <p style="font-size:10px;">クリックして詳細を表示</p>
+            </div>
+            <div class="mini-banner blue" onclick="showInfoModal('商用利用可能', '楽曲の販売や配信、動画への使用が無料（クレジット表記必須）で可能です。')">
+              <h4 style="color:#0055cc;">★ 商用利用 OK (￥0)</h4>
+              <p style="font-size:10px;">クリックして詳細を表示</p>
+            </div>
+            <div class="mini-banner yellow" onclick="showInfoModal('トリリンガル対応予定', '日本語・英語・スペイン語の3言語に対応予定のグローバルボイス！')">
+              <h4 style="color:#b37700;">★ 3言語対応 (JP/EN/ES)</h4>
+              <p style="font-size:10px;">クリックして詳細を表示</p>
+            </div>
+            <div class="mini-banner green" onclick="showInfoModal('独特な世界観', '崖から落ちて薬品池で変異した擬人化羊のミステリアスなストーリー。')">
+              <h4 style="color:#00802b;">★ 唯一無二の世界観</h4>
+              <p style="font-size:10px;">クリックして詳細を表示</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: INFORMACIÓN TÉCNICA -->
+      <div class="section-card" id="tech-info">
+        <div class="card-header" style="background: linear-gradient(90deg, #0088cc, #0055cc);">
+          <span>■ 技術情報 / Technical Information</span>
+          <span style="font-size:10px;">VOICEBANK DATA</span>
+        </div>
+        <div class="card-body">
+          <table class="spec-table">
+            <tr>
+              <th>公開日 [Release Date]：</th>
+              <td><span class="chip" style="background:#fff0f5; border-color:#ff0055; color:#cc0044; font-weight:bold;">近日公開 (Coming Soon)</span></td>
+            </tr>
+            <tr>
+              <th>制作者 [Creator]：</th>
+              <td><b>KIORU</b></td>
+            </tr>
+            <tr>
+              <th>制作国 [Country]：</th>
+              <td><b>ベネズエラ (Venezuela 🇻🇪)</b></td>
+            </tr>
+            <tr>
+              <th>イラスト [Illustrator]：</th>
+              <td><span style="color:#777;">未定 (TBD)</span></td>
+            </tr>
+            <tr>
+              <th>対応言語 [Languages]：</th>
+              <td>
+                <span class="chip">日本語 (Japanese)</span> 
+                <span class="chip">英語 (English)</span> 
+                <span class="chip">スペイン語 (Spanish)</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ) INTERACTIVAS -->
+      <div class="section-card" id="faq">
+        <div class="card-header" style="background: linear-gradient(90deg, #330066, #6600cc);">
+          <span>❓ よくある質問 / FAQ</span>
+          <span style="font-size:10px;">質問をクリックして回答を表示</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Q1. 音源は無料で利用できますか？ [Is it free?]</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-answer">
+              はい、完全無料でダウンロードしてご利用いただけます。個人・同人問わず無料でお使いいただけます。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Q2. 商用利用や収益化動画に使用しても大丈夫ですか？ [Commercial use?]</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-answer">
+              はい、可能です。YouTube等の動画収益化や同人CDの販売にもご利用いただけます。ご利用の際は「Voice: KIORU」等のクレジット表記をお願いいたします。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Q3. OpenUTAUでも使用できますか？ [OpenUTAU support?]</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-answer">
+              はい！本ボイスバンクは従来のUTAUソフトに加えて、OpenUTAUにも完全対応しています。Zipファイルをそのままドラッグ＆ドロップしてインストールできます。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Q4. 二次創作やイラストの投稿はできますか？ [Fanart / Derivative work?]</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-answer">
+              大歓迎です！ファンアート、ファンソングなどの二次創作活動を自由にお楽しみいただけます。
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BANNER ADVERTISING DE IMPACTO MEDIO -->
+      <div style="background: linear-gradient(90deg, #ff0055, #ffcc00); padding: 12px; margin-bottom: 15px; border-radius: 4px; text-align: center; color: #000; font-weight: 900;">
+        <span style="background:#000; color:#fff; padding:2px 6px; font-size:10px; vertical-align:middle;">AD</span>
+        【Arepa Power! 🫓】 ベネズエラ発のマルチリンガルUTAUボイス「KIORU」で新しい楽曲を創造しよう！
+      </div>
+
+      <!-- SECCIÓN TÉRMINOS Y CONDICIONES -->
+      <div class="section-card" id="terms">
+        <div class="card-header" style="background: linear-gradient(90deg, #cc0000, #ff4d4d);">
+          <span>■ 利用規約 / Terms of Use</span>
+          <span style="font-size:10px;">要確認</span>
+        </div>
+        <div class="card-body">
+          <ul style="list-style-type: square; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+            <li><b>商用利用 (Commercial Use):</b> クレジット表記（Voice: KIORU）があれば楽曲・作品の販売が可能です。</li>
+            <li><b>二次創作 (Derivative Works):</b> イラスト、動画、アレンジ楽曲の投稿は大歓迎です。</li>
+            <li><b>禁止事項 (Prohibitions):</b> ヘイトスピーチ、宗教・政治的勧誘、公序良俗に反する作品への使用は禁止します。</li>
+            <li><b>再配布 (Redistribution):</b> 音源ファイル自体の無断転載・再配布は禁止します。</li>
+          </ul>
+          <button class="btn-action" style="margin-top:10px;" onclick="openTermsModal()">規約全文をモーダルで確認する [Read Full Terms]</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA / BARRA LATERAL -->
+    <div>
+
+      <!-- TARJETA PRINCIPAL DE DESCARGA LATERAL -->
+      <div class="download-card" id="download">
+        <div style="color:#ff0055; font-weight:bold; font-size:11px;">▼ OFFICIAL DOWNLOAD ▼</div>
+        <h3 style="font-size:16px; margin:4px 0; color:#333;">KIORU_VCV_v1.0.zip</h3>
+        <div style="font-size:11px; color:#666;">[ 準備中 / Coming Soon ]</div>
+        
+        <a href="https://files.catbox.moe/xfpgwf.zip" target="_blank" rel="noopener" class="btn-download">
+          ⚡ DOWNLOAD NOW<br>
+          <span style="font-size:10px; font-weight:normal; color:#ffff00;">(メインサーバーからDL)</span>
+        </a>
+
+        <a href="https://files.catbox.moe/xfpgwf.zip" target="_blank" rel="noopener" class="btn-action" style="margin-top:8px; font-size:11px;">
+          📦 ミラーサーバーからDL [Mirror Server]
+        </a>
+      </div>
+
+      <!-- BANNER PUBLICITARIO SECUNDARIO YOUTUBE SIDEBAR -->
+      <div class="youtube-ad-card" style="padding: 10px;">
+        <div style="font-size:11px; color:var(--accent-yellow); font-weight:bold;">SUBSCRIBE ON YOUTUBE</div>
+        <div style="font-size:12px; font-weight:bold; color:#fff; margin:4px 0;">KIORU Official Channel</div>
+        <a href="https://youtube.com/@kioru_1" target="_blank" rel="noopener" class="btn-youtube" style="font-size:12px; padding:6px;">
+          ▶ チャンネル登録 (Subscribe)
+        </a>
+      </div>
+
+      <!-- BANNER RENOVADO: CANAL SECUNDARIO (RETRO RPG / MONOCROMÁTICO PIXEL ART) -->
+      <div class="youtube-subchannel-card">
+        <div style="font-size:11px; letter-spacing:1px; margin-bottom: 4px;">
+          * SUB CHANNEL / COVER &amp; LIVE
+        </div>
+        
+        <!-- Título corregido: Todos los elementos incluidos en spans animados -->
+        <div class="shake-title notranslate" translate="no">
+          <span>i</span><span>a</span><span>m</span><span>k</span><span>i</span><span>o</span><span>r</span><span>u</span><span>&nbsp;</span><span>(</span><span>キ</span><span>オ</span><span>ル</span><span>)</span>
+        </div>
+        
+        <p style="font-size:11px; margin-bottom:12px; line-height:1.4;">
+          * 擬人化羊 KIORU のカバー曲＆生配信チャンネル！
+        </p>
+        
+        <a href="https://youtube.com/@iamkioru" target="_blank" rel="noopener" class="btn-youtube-sub">
+          <span class="pixel-arrow">♥</span> iamkioru チャンネルへ
+        </a>
+      </div>
+
+      <!-- BANNER PUBLICITARIO EN LA SIDEBAR -->
+      <div class="sidebar-ad-card">
+        <span style="font-size:10px; color:var(--neon-pink); font-weight:bold;">[ SPECIAL ANNOUNCEMENT ]</span>
+        <h3>最高峰のUTAU体験を</h3>
+        <p style="font-size:11px; color:#ccc; margin-bottom:10px;">
+          化学薬品から生まれたミステリアスな羊少女「KIORU」の声を今すぐあなたの作品に取り入れましょう！
+        </p>
+        <a href="#download" style="color:var(--accent-yellow); font-weight:bold; text-decoration:underline; font-size:11px;">今すぐ入手 →</a>
+      </div>
+
+      <!-- BOTONES DE ACCIÓN SECUNDARIOS -->
+      <div class="section-card">
+        <div class="card-header" style="font-size:12px;">クイックアクション [Quick Actions]</div>
+        <div class="card-body" style="display:flex; flex-direction:column; gap:6px;">
+          <a href="#download" class="btn-action" style="background:#e6ffe6; border-color:#009933; color:#006622;">⚡ 音源直接DL (ZIP)</a>
+          <button class="btn-action" onclick="alert('OpenUTAU用のインストールガイドを表示します。')">OpenUTAU 導入ガイド</button>
+          <button class="btn-action" onclick="alert('公式立ち絵素材パック（透過PNG）の準備中です。')">立ち絵素材 DL (PNG)</button>
+        </div>
+      </div>
+
+      <!-- AVISO DE DESCARGAS -->
+      <div style="background:#fff; border:1px solid #ccc; padding:10px; text-align:center; font-size:11px;">
+        <div style="color:#cc0000; font-weight:bold;">総ダウンロード数 [Total Downloads]</div>
+        <div style="font-size:22px; font-weight:900; color:#0055cc;">84,921 <span style="font-size:11px;">回</span></div>
+        <div style="color:#888; font-size:10px; margin-top:2px;">毎日更新中</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL FLOTANTE Y DINÁMICO -->
+  <div class="modal" id="customModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modalTitle">Modal Title</span>
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+      </div>
+      <div id="modalBody" style="font-size:12px; line-height:1.5; color:#333;">
+        Modal content goes here...
+      </div>
+      <button class="btn-action" style="margin-top:15px;" onclick="closeModal()">閉じる (Close)</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>【公式】 KIORU Voicebank Official Portal / UTAU Project</p>
+    <p style="color:#88aabb; margin-top:4px;">Compatible with UTAU &amp; OpenUTAU | Mobile &amp; Desktop Optimized</p>
+    <p style="color:#666; margin-top:8px;">© KIORU Project All Rights Reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT DE INTERACTIVIDAD & SOUNDCLOUD API -->
+  <script>
+    // Inicializar el controlador del reproductor de SoundCloud
+    const iframeElement = document.getElementById('soundcloud-player');
+    const widget = SC.Widget(iframeElement);
+    let isPlaying = false;
+
+    // Cuando el audio termina por completo, se reinicia el botón
+    widget.bind(SC.Widget.Events.FINISH, function() {
+      const btn = document.getElementById('preview-btn');
+      isPlaying = false;
+      btn.innerText = '▶ 試聴再生 (Audio Preview)';
+      btn.style.background = '#fff';
+      btn.style.color = 'var(--joshin-blue)';
+    });
+
+    // Función del botón personalizado de Audio Preview
+    function toggleAudioSim(btn) {
+      if (!isPlaying) {
+        widget.play();
+        isPlaying = true;
+        btn.innerText = '▍▍ 停止 (Stop Preview)';
+        btn.style.background = '#ff0055';
+        btn.style.color = '#fff';
+      } else {
+        widget.pause();
+        isPlaying = false;
+        btn.innerText = '▶ 試聴再生 (Audio Preview)';
+        btn.style.background = '#fff';
+        btn.style.color = 'var(--joshin-blue)';
+      }
+    }
+
+    function openTermsModal() {
+      document.getElementById('modalTitle').innerText = '規約全文 / Full Terms of Use';
+      document.getElementById('modalBody').innerHTML = `
+        <p><b>1. 概要 (Overview):</b> 本音源「キオル (KIORU)」は、UTAU等の音声合成ソフトウェアで使用可能なフリー音源ライブラリです。</p><br>
+        <p><b>2. 商用利用 (Commercial Use):</b> 個人・同人での楽曲販売、動画配信による収益化はクレジット記載を条件に許可します。</p><br>
+        <p><b>3. 禁止事項 (Prohibitions):</b><br>- 音源ファイルの二次配布<br>- 他者への誹謗中傷、公序良俗に反する使用<br>- AI学習素材としての無断利用</p>
+      `;
+      document.getElementById('customModal').style.display = 'flex';
+    }
+
+    function showInfoModal(title, text) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalBody').innerHTML = `<p>${text}</p>`;
+      document.getElementById('customModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('customModal').style.display = 'none';
+    }
+
+    /* TOGGLE PARA PREGUNTAS FRECUENTES (FAQ) */
+    function toggleFaq(buttonElement) {
+      const answer = buttonElement.nextElementSibling;
+      const arrow = buttonElement.querySelector('span:last-child');
+      
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        arrow.textContent = "▼";
+      } else {
+        answer.style.display = "block";
+        arrow.textContent = "▲";
+      }
+    }
+
+    // Cerrar modal al hacer clic afuera
+    window.onclick = function(event) {
+      const modal = document.getElementById('customModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
